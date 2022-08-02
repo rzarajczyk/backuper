@@ -1,5 +1,5 @@
 #!/bin/bash
-WAIT="1h"
+WAIT="${WAIT:-1h}"
 while true; do
   echo "Starting rsync"
   rsync -av --delete /input/ /output/
