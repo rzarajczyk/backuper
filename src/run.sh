@@ -9,7 +9,7 @@ while true; do
 
   cd /output
   echo "Removing redundant files..."
-  ls -t | awk "NR>$MAX_FILES"
-  rm $(ls -t | awk "NR>$MAX_FILES")
+  ls -tp | grep -v '/$' | tail -n +$MAX_FILES
+  ls -tp | grep -v '/$' | tail -n +$MAX_FILES | xargs -I {} rm -- {}
   sleep "$WAIT"
 done
